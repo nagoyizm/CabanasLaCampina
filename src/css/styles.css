@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* REFERENTE AL CARRUSEL */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 1);
+  /* Fondo blanco al pasar el mouse */
+}
+
+.carousel {width: 300%;
+    transition: transform 1s ease;}
+
+.carousel img {
+        width: 100vw;
+        /* Ancho de una sola imagen */
+        height: 100vh;
+        -o-object-fit: cover;
+           object-fit: cover;
+}
+
+ /* Estilo para los indicadores */
+  
+ .indicator {
+    width: 10px;
+    /* Ajusta el ancho según sea necesario */
+    height: 10px;
+    /* Ajusta la altura según sea necesario */
+    margin: 5px;
+    /* Espaciado entre indicadores */
+    background-color: gray;
+    /* Color de fondo por defecto */
+    border-radius: 50%;
+    /* Forma circular */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el indicador */
+  }
+  
+  /* Estilo para el indicador activo */
+  
+  .indicator.active {
+    background-color: white;
+    /* Color de fondo para el indicador activo */
+  }
+
+  .navbar{
+    background-image: url('../src/img/fondoGroovy2.png');
+    background-repeat: repeat;
+  }
+
+  #contenedor1{
+    background-image: url('../src/img/fondoGroovy2.png') ;
+    background-repeat:repeat;
+   
+  }
+
+  #contenedorintermedio1{
+    background: linear-gradient(to bottom, #2D5132 50%, #E3D7BB 90%),url('../src/img/fondoGroovy.png');
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+  }
+
+
+  #contenedorintermedio2{
+    background: linear-gradient(to bottom, rgba(227, 215, 187, 1) 50%, rgba(255, 255, 255, 0) 100%), url('../src/img/fondoGroovy.png');
+    /* Degradado de color a transparente */
+    background-repeat: repeat;
+    background-size: cover;
+    /* Corregido: comillas simples eliminadas */
+    background-blend-mode: overlay;
+    /* Mezcla el degradado y la imagen */
+
+  }
+  
+  #contenedor2 {
+    background-color: #ffffff;
+    background-image: url('../src/img/fondoGroovy3.png');
+    /* Cambiado a 100% para asegurar que el verde ocupe toda la altura */
+    background-repeat: repeat;
+    /* Elimina la repetición del fondo */
+    background-blend-mode: overlay;
+    /* Mezcla el color de fondo con la imagen */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Añade opacidad de 10% al color de fondo */
+  }
+
+  #botonBanner{
+    background-image: url('../src/img/fondoGroovy2.png');
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+  }
+
+  
