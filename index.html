@@ -11,7 +11,7 @@
         
 </head>
 
-<body class="smooth-scroll w-full m-0 p-0">
+<body class=" w-full m-0 p-0">
 <nav id="navbar" class="navbar flex items-center px-12 fixed z-50 h-[40px] bg-fondoVerde top-0 left-0 w-full tracking-widest  transition-all  duration-300 ease-in-out ">
         <div class="container px-2 items-center p-2 flex-row flex w-full justify-between mx-auto  text-fondoCrema">
             <div class="flex items-center justify-around w-full">
@@ -166,19 +166,19 @@
                     <div class="relative h-full overflow-hidden rounded-lg md:h-full lg:h-[100%]">
                          <!-- Item 1 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/cabaña1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenCabana1" src="./src/img/cabanas/1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 2 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/cabaña2.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenCabana2" src="./src/img/cabanas/2.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 3 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-                            <img src="./src/img/foto1.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenCabana3" src="./src/img/cabanas/3.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 4 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/foto2.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenCabana4" src="./src/img/cabanas/4.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         
                         
@@ -210,27 +210,85 @@
 
                     
                     <h3 class="z-10  text-2xl md:text-3xl lg:text-5xl text-fondoCrema font-whisper">Selecciona la cabaña</h3>
-                    <select class="z-10 mt-2 font-antic rounded-sm w-5/6">
-                        <option class="font-antic" value="">Selecciona una cabaña</option>
-                        <option class="font-antic" value="">cabañas 2 a 5 personas</option>
-                        <option class="font-antic" value="">cabañas 5a 7 personas</option>
+                    <select id="selectCabanas" class="z-10 mt-2 font-antic rounded-sm w-5/6">
+                        <option class="font-antic" value="cabaña de 2 a 4 personas" selected="">cabañas 2 a 4 personas</option>
+                        <option class="font-antic" value="cabaña de 5 a 7 personas">cabañas 5 a 7 personas</option>
                     </select>
-                    <p class="text-fondoCrema text-sm lg:text-md h-3/4 font-antic px-4 lg:px-8 m-4 z-10 overflow-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ut corrupti aspernatur nostrum itaque quam, necessitatibus ad, sapiente optio impedit vel eum ipsa quod eveniet minima aperiam iure. Ex, labore?
-                    Minima aperiam expedita ex laborum temporibus quidem quam at, mollitia dolore adipisci cupiditate harum laboriosam, rerum ipsa illo nihil praesentium voluptatem itaque ipsum! Ipsa accusamus deleniti exercitationem tempore, cum voluptas.
-                    Aut nobis recusandae magnam illo earum. Neque possimus odit nobis consequatur, itaque ullam iusto consequuntur fugit molestiae corrupti vel, at sunt pariatur hic libero. Dolorum quos excepturi natus aliquid iste.
-                    Asperiores ut quis sequi officiis eligendi voluptatem quos sed est eaque eum voluptates excepturi, officia reprehenderit quas quibusdam porro adipisci minus. Nulla sit qui id laborum pariatur delectus suscipit eligendi.
-                    Repellat quam aspernatur eveniet quisquam alias architecto hic obcaecati delectus fugit, quae nihil harum veniam. Iste, odit. Sit, non et quia cum ipsum quaerat est quasi minima animi vitae quod.
-                    Consectetur minima voluptatibus facere, rerum sint officia necessitatibus ab modi quis, ipsa aliquam consequuntur quae non eaque ut, repudiandae amet. Delectus nihil modi commodi iusto est iure, optio inventore ducimus.
-                    Sit, provident. Amet consequatur aperiam soluta aliquid fuga doloribus eius, nobis placeat vero enim cupiditate dolorum incidunt nesciunt neque. Enim ducimus ullam maiores unde consequuntur, quod error odit fugiat eligendi.
+
+                    <p id="parrafoCabanas" class="text-fondoCrema text-sm lg:text-lg h-3/4 font-antic px-4 lg:px-8 m-4 z-10 overflow-auto">
+                        Cuenta con una pieza en el primer piso con cama matrimonial, living-comedor con cocina y baño independiente. En el segundo piso abierto, se encuentran dos camas de una plaza. La cabaña incluye:
+                        Ropa de cama, juego de toallas y rollo de papel higiénico(x1).
+                        Vajilla, refrigerador y microondas.
+                        Televisor con DirecTV.
+                        Quincho para asados y comedor en terraza.
+                        Estacionamiento privado.
+                        Acceso a juegos infantiles.
+                        Acceso a piscinas (solo verano hasta Semana Santa).
+                        Calefacción (solo invierno).
+                    
+                    IMPORTANTE: La cabaña no cuenta con Wi-Fi ni artículos de aseo e higiene personal.
+                    *Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables.
+                    Opción de 1 futón para persona extra con valor adicional (consultar disponibilidad al momento de reservar).
                     </p>
 
-                    <a href="" id="botonSuites" class="text-md mx-auto bg-fondoVerde font-whisper text-white w-full flex justify-center text-center rounded-lg opacity-90 tracking-widest py-2 text-3xl
+                    <a id="botonCabanas" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="text-md mx-auto bg-fondoVerde font-whisper text-white w-full flex justify-center text-center rounded-lg opacity-90 tracking-widest py-2 text-3xl
                            lg:py-3    
                            lg:bottom-0
                            lg:text-4xl 
-                           lg:px-10 ">Arrendar</a>
+                           lg:px-10 ">Reservar</a>
                 
                     </div>
+                    <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-fondoCrema rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-around p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-4xl text-center font-semibold text-gray-900 dark:text-white font-whisper">
+                                        Cotizacion
+                                    </h3>
+                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-fondoVerde hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <form class="p-4 md:p-5">
+                                    <div class="grid gap-4 mb-4 grid-cols-2">
+                                        <div class="col-span-2">
+                                            <label for="start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de inicio (Check-in)</label>
+                                            <input type="date" value="" name="fechaInicio" id="fechaInicioC" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label for="end-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de término(Check-out)</label>
+                                            <input type="date" name="fechaTermino" id="fechaTerminoC" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2 sm:col-span-1">
+                                            <label for="personas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de personas</label>
+                                            <input type="number" name="cantidadPersonas" id="cantidadPersonasC" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2 sm:col-span-1">
+                                            <label for="mascotas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Viene con mascota?</label>
+                                            <select id="mascotaC" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                                <option selected="">Seleccione</option>
+                                                <option value="Si">Sí</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label for="adicional" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Información adicional</label>
+                                            <textarea id="adicionalC" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Añada información adicional"></textarea>                    
+                                        </div>
+                                    </div>
+                                    <a id="botonEnvioCabanas" href="" class="text-white inline-flex items-center bg-fondoVerde opacity-80 hover:opacity-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Enviar cotización
+                                   </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
             </div>
         </div>
         
@@ -252,19 +310,19 @@
                     <div class="relative h-full overflow-hidden rounded-lg md:h-full lg:h-[100%]">
                          <!-- Item 1 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/cabaña1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenSuite1" src="./src/img/suites/1.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 2 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/cabaña2.jpeg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenSuite2" src="./src/img/suites/2.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 3 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item="active">
-                            <img src="./src/img/foto1.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenSuite3" src="./src/img/suites/3.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <!-- Item 4 -->
                         <div class="hidden duration-200 ease-linear" data-carousel-item>
-                            <img src="./src/img/foto2.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img id="imagenSuite4" src="./src/img/suites/4.jpg" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         
                         
@@ -296,29 +354,89 @@
 
                     
                     <h3 class="z-10  text-2xl md:text-3xl lg:text-5xl text-black font-whisper">Selecciona la suite</h3>
-                    <select class="z-10 mt-2 font-antic rounded-sm w-5/6">
-                        <option class="font-antic" value="">Selecciona una cabaña</option>
-                        <option class="font-antic" value="">cabañas 2 a 5 personas</option>
-                        <option class="font-antic" value="">cabañas 5a 7 personas</option>
+                    <select id="selectSuites" class="z-10 mt-2 font-antic rounded-sm w-5/6">
+                        <option class="font-antic" value="suite de primer piso">suites para 1 a 2 personas - Primer Piso</option>
+                        <option class="font-antic" value="suite de segundo piso deluxe">Suites para 1 a 2 personas - Segundo Piso Deluxe</option>
+                        <option class="font-antic" value="suite de segundo piso standart">Suites para 1 a 2 personas - Segundo Piso Standart                        </option>
                     </select>
-                    <p class="text-fondoCrema text-sm lg:text-md h-3/4 font-antic px-4 lg:px-8 m-4 z-10 overflow-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ut corrupti aspernatur nostrum itaque quam, necessitatibus ad, sapiente optio impedit vel eum ipsa quod eveniet minima aperiam iure. Ex, labore?
-                    Minima aperiam expedita ex laborum temporibus quidem quam at, mollitia dolore adipisci cupiditate harum laboriosam, rerum ipsa illo nihil praesentium voluptatem itaque ipsum! Ipsa accusamus deleniti exercitationem tempore, cum voluptas.
-                    Aut nobis recusandae magnam illo earum. Neque possimus odit nobis consequatur, itaque ullam iusto consequuntur fugit molestiae corrupti vel, at sunt pariatur hic libero. Dolorum quos excepturi natus aliquid iste.
-                    Asperiores ut quis sequi officiis eligendi voluptatem quos sed est eaque eum voluptates excepturi, officia reprehenderit quas quibusdam porro adipisci minus. Nulla sit qui id laborum pariatur delectus suscipit eligendi.
-                    Repellat quam aspernatur eveniet quisquam alias architecto hic obcaecati delectus fugit, quae nihil harum veniam. Iste, odit. Sit, non et quia cum ipsum quaerat est quasi minima animi vitae quod.
-                    Consectetur minima voluptatibus facere, rerum sint officia necessitatibus ab modi quis, ipsa aliquam consequuntur quae non eaque ut, repudiandae amet. Delectus nihil modi commodi iusto est iure, optio inventore ducimus.
-                    Sit, provident. Amet consequatur aperiam soluta aliquid fuga doloribus eius, nobis placeat vero enim cupiditate dolorum incidunt nesciunt neque. Enim ducimus ullam maiores unde consequuntur, quod error odit fugiat eligendi.
+                    <p id="parrafoSuites" class="text-black text-md lg:text-lg h-3/4 font-antic px-4 lg:px-8 m-4 z-10 overflow-auto">Suites para 1-2 personas* en 1er piso: cuentan con una cama de dos plazas, una pequeña cocinilla eléctrica para comidas menores (desayunos/onces), ducha en dormitorio frente a cama, y un baño privado. Posee vista al jardín (con opción de sillón cama extra por costo adicional y según disponibilidad). Incluye:
+
+                        Ropa de cama, juego de toallas, secador de cabello, rollo de papel higiénico(x1), jabón líquido(20ml), shampoo/acondicionador(20ml) y crema humectante(20ml).
+                        Vajilla, frigobar y televisor con DirecTV.
+                        Acceso a quinchos grandes y comedores comunitarios al exterior.
+                        Estacionamiento.
+                        Acceso a juegos infantiles.
+                        Acceso a piscinas (solo verano).
+                    
+                        IMPORTANTE: Las suites no cuentan con Wi-Fi ni artículos de aseo e higiene personal. Se prohíbe la música después de las 21:00. No se aceptan mascotas en los suites.
+                        *Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables y/o cama inflable adicional.
                     </p>
 
-                    <a href="https://wa.me/56979004253?text=Hola, quisiera arrendar la cabaña x" id="botonSuites" class="text-md mx-auto bg-fondoVerde font-whisper text-white w-full flex justify-center text-center rounded-lg opacity-90 tracking-widest py-2 text-3xl
+                    <a id="botonSuites" data-modal-target="crud-modal2" data-modal-toggle="crud-modal2"  class="text-md mx-auto bg-fondoVerde font-whisper text-white w-full flex justify-center text-center rounded-lg opacity-90 tracking-widest py-2 text-3xl
                            lg:py-3    
                            lg:bottom-0
                            lg:text-4xl 
-                           lg:px-10 ">Arrendar</a>
+                           lg:px-10 ">Reservar</a>
                 
                     </div>
+                    <div id="crud-modal2" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-fondoCrema rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-around p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-4xl text-center font-semibold text-gray-900 dark:text-white font-whisper">
+                                        Cotizacion
+                                    </h3>
+                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-fondoVerde hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal2">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <form class="p-4 md:p-5">
+                                    <div class="grid gap-4 mb-4 grid-cols-2">
+                                        <div class="col-span-2">
+                                            <label for="start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de inicio (Check-in)</label>
+                                            <input type="date" value="" name="fechaInicio" id="fechaInicio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label for="end-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de término(Check-out)</label>
+                                            <input type="date" name="fechaTermino" id="fechaTermino" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2 sm:col-span-1">
+                                            <label for="personas" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de personas</label>
+                                            <input type="number" name="cantidadPersonas" id="cantidadPersonas" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="">
+                                        </div>
+                                        <div class="col-span-2 sm:col-span-1">
+                                            <label for="infantes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Viene con infante?</label>
+                                            <select id="infantesSuite" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                                <option selected="">Seleccione</option>
+                                                <option value="Sí">Sí</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <label for="adicional" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Información adicional</label>
+                                            <textarea id="adicional" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Añada información adicional"></textarea>                    
+                                        </div>
+                                    </div>
+                                    <a id="botonEnvioSuites" href="" class="text-white inline-flex items-center bg-fondoVerde opacity-80 hover:opacity-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Enviar cotización
+                                   </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div> 
+                    
             </div>
         </div>
+
+        <!-- Main modal -->
+
+        
         
     </section>
 </div>

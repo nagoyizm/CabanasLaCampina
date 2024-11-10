@@ -305,11 +305,11 @@ document.addEventListener('DOMContentLoaded', () => {
                   
                     let nombreInstancias = "";
                     switch(foundArea.id){
-                        case 1: nombreInstancias = "Cabañas Bugambilia"; break;
+                        case 1: nombreInstancias = "Cabañas 2 a 4 personas"; break;
                         case 2: nombreInstancias = "Recepcion"; break;
                         case 3: nombreInstancias = "Jardines y senderos"; break;
                         case 4: nombreInstancias = "Suites"; break;
-                        case 5: nombreInstancias = "Cabañas 2"; break;
+                        case 5: nombreInstancias = "Cabañas 5 a 7 personas"; break;
                         case 6: nombreInstancias = "Piscina"; break;
                         case 7: nombreInstancias = "Quinchos"; break;
                         case 8: nombreInstancias = "Lavanderia"; break;
@@ -317,13 +317,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     let nombreHref=""
                      switch (nombreInstancias){
-                        case "Cabañas Bugambilia": nombreHref="cabanas";break;
+                        case "Cabañas 2 a 4 personas": nombreHref="cabanas";document.getElementById('selectCabanas').value='cabaña de 2 a 4 personas';break;
                         case "Suites": nombreHref="suites";break;
-                        case "Cabañas 2": nombreHref="cabanas";break;
+                        case "Cabañas 5 a 7 personas": nombreHref="cabanas";document.getElementById('selectCabanas').value='cabaña de 5 a 7 personas';break;
                      }
 
                     // Crear el contenido del pop-up
-                    popup.innerHTML =`<div class="relative flex flex-col items-center justify-center p-4 rounded-md bg-fondoCrema" >
+                    popup.innerHTML =`<div class="smooth-scroll relative flex flex-col items-center justify-center p-4 rounded-md bg-fondoCrema" >
                             <button class="absolute top-0 right-[2px] text-black close-popup" id="close-popup">[x]</button> 
                             <img class="m-4 w-64 rounded-xl" src="./src/img/fotosTarjetas/${foundArea.id}.jpg" alt="Imagen"><br>
                             <h4 class="font-whisper text-3xl">${nombreInstancias}</h4>
@@ -366,3 +366,236 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function mandarWSP(mensaje) {
+    const url = `https://wa.me/56979004253?text=${mensaje}`; // El enlace que deseas abrir
+    window.open(url, '_blank'); // Abre el enlace en una nueva ventana o pestaña
+}
+
+//funcion para modal para mandar arriendo
+
+
+
+
+const botonEnvioSuites=document.getElementById('botonEnvioSuites');
+// Temporariamente desactivar la funcionalidad del botón
+botonEnvioSuites.addEventListener('click',(event)=>  
+{   
+    event.preventDefault();
+   
+    let adicional = document.getElementById('adicional').value || ''; // Guardar como texto vacío si no hay contenido
+    const fechaInicio = new Date(document.getElementById('fechaInicio').value); // Obtener el valor del input
+    const fechaTermino = new Date(document.getElementById('fechaTermino').value); // Obtener el valor del input
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const diaCheckIn = String(fechaInicio.getDate()).padStart(2, '0'); // Corregido: padStart debe aplicarse después de convertir a String
+    const mesCheckIn = meses[fechaInicio.getMonth()]; // Obtener el nombre del mes
+    const anioCheckin = fechaInicio.getFullYear();
+    const diaCheckOut = String(fechaTermino.getDate()).padStart(2, '0'); // Corregido: padStart debe aplicarse después de convertir a String
+    const mesCheckOut = meses[fechaTermino.getMonth()]; // Obtener el nombre del mes
+    const anioCheckOut = fechaTermino.getFullYear();
+
+    const inputs = ['selectSuites','cantidadPersonas', 'infantesSuite'];
+    const [selectSuites, cantidadPersonas, infantes] = inputs.map(id => document.getElementById(id).value);
+    console.log(selectSuites, fechaInicio, fechaTermino, cantidadPersonas, infantes);
+
+    
+    if (fechaInicio > fechaTermino) {
+        alert("La fecha de inicio no puede ser después de la fecha de término.");
+        return; // Salir de la función si la validación falla
+    }
+    if (fechaTermino < fechaInicio) {
+        alert("La fecha de término no puede ser antes de la fecha de inicio.");
+        return; // Salir de la función si la validación falla
+    }
+
+    if (cantidadPersonas === "0" || cantidadPersonas < 1) { // Verifica si es 0 o negativo
+        alert("Tiene que especificar un número de personas."); // Alerta si el valor es 0 o negativo
+        return; // Salir de la función si la validación falla
+    }
+
+    if (infantes !== "Sí" && infantes !== "No") {
+        alert("Tiene que especificar si viene con infantes");
+        return; // Salir de la función si la validación falla
+    }
+   
+
+    let mensaje = `Hola!\nMe gustaría reservar una ${selectSuites} con check-in el ${diaCheckIn} de ${mesCheckIn} del ${anioCheckin} y check-out el ${diaCheckOut} de ${mesCheckOut} del ${anioCheckOut}.\nLa cantidad de personas es ${cantidadPersonas}.\n${infantes} contamos con infante acompañante.\n${adicional}`; // Corregido: espacio agregado antes de "desde"
+
+    mensaje = encodeURIComponent(mensaje);
+    mandarWSP(mensaje);
+    document.getElementById('fechaInicio').value=''
+    document.getElementById('fechaTermino').value=''
+    // Reiniciar los valores de todos los inputs
+    inputs.forEach(id => {
+        document.getElementById(id).value = ''; // Establecer el valor de cada input a vacío
+    });
+    document.getElementById('adicional').value = ''; // Asegurarse de reiniciar el campo adicional
+});
+
+
+
+const botonEnvioCabanas=document.getElementById('botonEnvioCabanas');
+botonEnvioCabanas.addEventListener('click',(event)=> 
+{   event.preventDefault();
+
+    
+    let adicional = document.getElementById('adicionalC').value || ''; // Guardar como texto vacío si no hay contenido
+    const fechaInicio = new Date(document.getElementById('fechaInicioC').value); // Obtener el valor del input
+    const fechaTermino = new Date(document.getElementById('fechaTerminoC').value); // Obtener el valor del input
+    const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+    const diaCheckIn = String(fechaInicio.getDate()).padStart(2, '0'); // Corregido: padStart debe aplicarse después de convertir a String
+    const mesCheckIn = meses[fechaInicio.getMonth()]; // Obtener el nombre del mes
+    const anioCheckin = fechaInicio.getFullYear();
+    const diaCheckOut = String(fechaTermino.getDate()).padStart(2, '0'); // Corregido: padStart debe aplicarse después de convertir a String
+    const mesCheckOut = meses[fechaTermino.getMonth()]; // Obtener el nombre del mes
+    const anioCheckOut = fechaTermino.getFullYear();
+
+    const inputs = ['selectCabanas','cantidadPersonasC', 'mascotaC'];
+    const [selectCabanas, cantidadPersonas, mascotas] = inputs.map(id => document.getElementById(id).value);
+    console.log(selectCabanas, fechaInicio, fechaTermino, cantidadPersonas, mascotas);
+
+
+    if (fechaInicio > fechaTermino) {
+        alert("La fecha de inicio no puede ser después de la fecha de término.");
+        return; // Salir de la función si la validación falla
+    }
+    if (fechaTermino < fechaInicio) {
+        alert("La fecha de término no puede ser antes de la fecha de inicio.");
+        return; // Salir de la función si la validación falla
+    }
+
+    if (cantidadPersonas === "0" || cantidadPersonas < 1) { // Verifica si es 0 o negativo
+        alert("Tiene que especificar un número de personas."); // Alerta si el valor es 0 o negativo
+        return; // Salir de la función si la validación falla
+    }
+
+    if (mascotas !== "Si" && mascotas !== "No") {
+        alert("Tiene que especificar si viene con mascotas");
+        return; // Salir de la función si la validación falla
+    }
+   
+
+    let mensaje = `Hola!\nMe gustaría reservar una ${selectCabanas} con check-in el ${diaCheckIn} de ${mesCheckIn} del ${anioCheckin} y check-out el ${diaCheckOut} de ${mesCheckOut} del ${anioCheckOut}.\nLa cantidad de personas es ${cantidadPersonas}.\n${mascotas} contamos con mascota.\n${adicional}`; // Corregido: espacio agregado antes de "desde"
+
+
+    mensaje = encodeURIComponent(mensaje);
+    mandarWSP(mensaje);
+    
+    document.getElementById('fechaInicioC').value=''
+    document.getElementById('fechaTerminoC').value=''
+    // Reiniciar los valores de todos los inputs
+    inputs.forEach(id => {
+        document.getElementById(id).value = ''; // Establecer el valor de cada input a vacío
+    });
+    document.getElementById('adicionalC').value = ''; // Asegurarse de reiniciar el campo adicional
+
+});
+
+const cabana1=`Cabaña familiar de 7 personas*: cuenta con una pieza matrimonial con baño privado en el primer piso, living-comedor con cocina y baño independiente. En el segundo piso abierto, se encuentran tres camas de una plaza y una habitación con dos camas de una plaza. La cabaña incluye:
+
+    Ropa de cama, juego de toallas y rollo de papel higiénico(x2).
+    Vajilla, refrigerador y microondas.
+    Televisor con DirecTV.
+    Quincho para asados y comedor en terraza.
+    Estacionamiento privado.
+    Acceso a juegos infantiles.
+    Acceso a piscinas (solo verano hasta Semana Santa).
+    Calefacción (solo invierno).
+
+IMPORTANTE: La cabaña no cuenta con Wi-Fi ni artículos de aseo e higiene personal.
+*Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables. Opción de 1 futón para persona extra con valor adicional (consultar disponibilidad al momento de reservar)`
+
+const cabana2=`Cabaña familiar para 2-4 personas*: cuenta con una pieza en el primer piso con cama matrimonial, living-comedor con cocina y baño independiente. En el segundo piso abierto, se encuentran dos camas de una plaza. La cabaña incluye:
+
+    Ropa de cama, juego de toallas y rollo de papel higiénico(x1).
+    Vajilla, refrigerador y microondas.
+    Televisor con DirecTV.
+    Quincho para asados y comedor en terraza.
+    Estacionamiento privado.
+    Acceso a juegos infantiles.
+    Acceso a piscinas (solo verano hasta Semana Santa).
+    Calefacción (solo invierno).
+
+IMPORTANTE: La cabaña no cuenta con Wi-Fi ni artículos de aseo e higiene personal.
+*Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables.
+Opción de 1 futón para persona extra con valor adicional (consultar disponibilidad al momento de reservar).`
+
+const selectCabanas=document.getElementById('selectCabanas')
+selectCabanas.addEventListener('change',()=>{
+        if(selectCabanas.value === 'cabaña de 5 a 7 personas') {
+            document.getElementById('imagenCabana1').src='./src/img/cabanas/5.jpg';
+            document.getElementById('imagenCabana2').src='./src/img/cabanas/6.jpg';
+            document.getElementById('imagenCabana3').src='./src/img/cabanas/7.jpg';
+            document.getElementById('imagenCabana4').src='./src/img/cabanas/8.jpg';
+            document.getElementById('parrafoCabanas').textContent=cabana1;
+        }else{
+            document.getElementById('imagenCabana1').src='./src/img/cabanas/1.jpg';
+            document.getElementById('imagenCabana2').src='./src/img/cabanas/2.jpg';
+            document.getElementById('imagenCabana3').src='./src/img/cabanas/3.jpg';
+            document.getElementById('imagenCabana4').src='./src/img/cabanas/4.jpg';
+            document.getElementById('parrafoCabanas').textContent=cabana2;
+
+        }
+    
+    })
+
+const suite1=`Suites para 1-2 personas* en 1er piso: cuentan con una cama de dos plazas, una pequeña cocinilla eléctrica para comidas menores (desayunos/onces), ducha en dormitorio frente a cama, y un baño privado. Posee vista al jardín (con opción de sillón cama extra por costo adicional y según disponibilidad). Incluye:
+
+    Ropa de cama, juego de toallas, secador de cabello, rollo de papel higiénico(x1), jabón líquido(20ml), shampoo/acondicionador(20ml) y crema humectante(20ml).
+    Vajilla, frigobar y televisor con DirecTV.
+    Acceso a quinchos grandes y comedores comunitarios al exterior.
+    Estacionamiento.
+    Acceso a juegos infantiles.
+    Acceso a piscinas (solo verano).
+
+IMPORTANTE: Las suites no cuentan con Wi-Fi ni artículos de aseo e higiene personal. Se prohíbe la música después de las 21:00. No se aceptan mascotas en los suites.
+*Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables y/o cama inflable adicional.`
+
+const suite2=`cuentan con una cama de dos plazas, una pequeña cocinilla eléctrica para comidas menores (desayunos/onces) y un baño con ducha (con opción de sillón cama extra por costo adicional y según disponibilidad) con vista al jardín y ventilador.
+Incluyen:
+    Ropa de cama, juego de toallas, secador de cabello, rollo de papel higiénico(x1), jabón líquido(20ml), shampoo/acondicionador(20ml) y crema humectante(20ml).
+    Vajilla, frigobar y televisor con DirecTV.
+    Acceso a quinchos grandes y comedores comunitarios al exterior.
+    Estacionamiento.
+    Acceso a juegos infantiles.
+    Acceso a piscinas (solo verano hasta Semana Santa).
+
+IMPORTANTE: Las suites no cuentan con Wi-Fi ni artículos de aseo e higiene personal. Se prohíbe la música después de las 21:00. No se aceptan mascotas en las suites. No conectar artículos de alta carga eléctrica.
+*Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables y/o cama inflable adicional.`
+
+const suite3=`cuentan con una cama de dos plazas, una pequeña cocinilla eléctrica para comidas menores (desayunos/onces) y un baño con ducha (con opción de sillón cama extra por costo adicional y según disponibilidad) con vista hacia el interior.
+Incluyen:
+    Ropa de cama, juego de toallas, secador de cabello, rollo de papel higiénico(x1), jabón líquido(20ml), shampoo/acondicionador(20ml) y crema humectante(20ml).
+    Vajilla, frigobar y televisor con DirecTV.
+    Acceso a quinchos grandes y comedores comunitarios al exterior.
+    Estacionamiento.
+    Acceso a juegos infantiles.
+    Acceso a piscinas (solo verano hasta Semana Santa).
+
+IMPORTANTE: Las suites no cuentan con Wi-Fi ni artículos de aseo e higiene personal. Se prohíbe la música después de las 21:00. No se aceptan mascotas en las suites. No conectar artículos de alta carga eléctrica.
+*Puede haber 1 infante extra si puede dormir en cama matrimonial con sus responsables y/o cama inflable adicional.`
+
+const selectSuites=document.getElementById('selectSuites')
+selectSuites.addEventListener('change',()=>{
+        if(selectSuites.value === 'suite de primer piso') {
+            document.getElementById('imagenSuite1').src='./src/img/suites/1.jpg';
+            document.getElementById('imagenSuite2').src='./src/img/suites/2.jpg';
+            document.getElementById('imagenSuite3').src='./src/img/suites/3.jpg';
+            document.getElementById('imagenSuite4').src='./src/img/suites/4.jpg';
+            document.getElementById('parrafoSuites').textContent=suite1;
+        }else if(selectSuites.value==='suite de segundo piso deluxe'){
+            document.getElementById('imagenSuite1').src='./src/img/suites/5.jpg';
+            document.getElementById('imagenSuite2').src='./src/img/suites/6.jpg';
+            document.getElementById('imagenSuite3').src='./src/img/suites/7.jpg';
+            document.getElementById('imagenSuite4').src='./src/img/suites/8.jpg';
+            document.getElementById('parrafoSuites').textContent=suite2;
+
+        }else if(selectSuites.value==='suite de segundo piso standart'){
+            document.getElementById('imagenSuite1').src='./src/img/suites/9.jpg';
+            document.getElementById('imagenSuite2').src='./src/img/suites/10.jpg';
+            document.getElementById('imagenSuite3').src='./src/img/suites/11.jpg';
+            document.getElementById('imagenSuite4').src='./src/img/suites/12.jpg';
+            document.getElementById('parrafoSuites').textContent=suite3;
+        }
+    
+    })

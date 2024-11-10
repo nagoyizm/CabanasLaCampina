@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  scroll-behavior:smooth;
+}
+
+
 /* REFERENTE AL CARRUSEL */
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
